@@ -5,11 +5,12 @@ import ReviewItem from "./components/ReviewItem";
 import ReviewStats from "./components/ReviewStats";
 import Tab from "./components/Tab";
 import WatchedBy from "./components/WatchedBy";
-import { api } from "./api";
+import { SERVER_URL } from "./api";
 import { ReviewInterface, SeriesInterface, TabEnum } from "./interfaces";
 import Layout from "./layout";
 import { getImagePath } from "./utils";
 import CastListing from "./components/CastListing";
+import axios from "axios";
 
 const reviews: ReviewInterface = {
   average: 4,
@@ -61,7 +62,7 @@ const App = () => {
   const fetchSeries = async () => {
     try {
       setLoading(true);
-      const response = await api.get("/data-sg");
+      const response = await axios.get(`${SERVER_URL}/samples/data-sg`);
       setSeries(response.data);
     } catch (error) {
       console.log(error);
