@@ -65,7 +65,7 @@ const App = () => {
       setSeries(response.data);
     } catch (error) {
       console.log(error);
-      setError("Error while fetching the series!");
+      setError("Error while fetching the series!: " + JSON.stringify(error));
     } finally {
       setLoading(false);
     }
@@ -86,7 +86,7 @@ const App = () => {
     return (
       <Layout>
         <div className="py-12 w-full flex justify-center items-center">
-          <h1 className="text-white">Series not found :-(</h1>
+          <h1 className="text-white">{error || "Series not found :-("}</h1>
         </div>
       </Layout>
     );
