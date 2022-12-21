@@ -10,7 +10,7 @@ const CastListing: React.FC<{ cast: ActorInterface[] }> = ({ cast }) => {
   return (
     <>
       {/* Extra feature to show cast in list as well as in card layout */}
-      <div className="flex justify-end items-center gap-4  py-4">
+      <div className="flex justify-start items-center gap-4  py-4">
         <button
           onClick={() => {
             setListType("list");
