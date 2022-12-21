@@ -23,7 +23,7 @@ const CastCard: React.FC<{ actor: ActorInterface }> = ({ actor }) => {
           {actor.name}
         </p>
         <p className="truncate text-sm text-gray-400">
-          <p className="truncate text-gray-400">Age: {actor.age} yrs</p>
+          <span className="block">Age: {actor.age} yrs</span>
           <span className="italic text-white">{actor.profession}</span>
         </p>
       </div>

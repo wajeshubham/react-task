@@ -13,6 +13,7 @@ const Tab: React.FC<{
       {tabs.map((tab) => {
         return (
           <button
+            key={tab}
             onClick={() => {
               onChange(tab);
             }}

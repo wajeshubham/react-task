@@ -37,13 +37,13 @@ const CastListing: React.FC<{ cast: ActorInterface[] }> = ({ cast }) => {
       {listType === "list" ? (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {cast.map((actor) => (
-            <CastListItem actor={actor} />
+            <CastListItem key={actor.id} actor={actor} />
           ))}
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {cast.map((actor) => (
-            <CastCard actor={actor} />
+            <CastCard key={actor.id} actor={actor} />
           ))}
         </div>
       )}
