@@ -3,7 +3,7 @@
 Add `.env` file in the root folder and add following evn variable
 
 ```
-VITE_SERVER_URL=http://demo.tech2edge.co
+VITE_SERVER_URL=https://demo.tech2edge.co
 ```
 
 ```
