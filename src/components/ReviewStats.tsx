@@ -35,7 +35,7 @@ const ReviewStats: React.FC<{ reviews: ReviewInterface }> = ({ reviews }) => {
                   <Rating rating={count.rating} showOnlyActive />
 
                   <div className="relative ml-3 flex-1">
-                    <div className="h-3 rounded-full border border-gray-600 bg-gray-700" />
+                    <div className="h-3 rounded-full border border-gray-700 bg-gray-800" />
                     {count.count > 0 ? (
                       <div
                         className="absolute inset-y-0 rounded-full border border-yellow-400 bg-yellow-400"

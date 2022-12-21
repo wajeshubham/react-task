@@ -1,12 +1,13 @@
 import React from "react";
 import Rating from "../icons/rating";
 import { FeaturedReview, ReviewInterface } from "../interfaces";
+import Image from "./Image";
 
 const ReviewItem: React.FC<{ review: FeaturedReview }> = ({ review }) => {
   return (
     <div key={review.id} className="py-8">
       <div className="flex items-center">
-        <img
+        <Image
           src={review.avatarSrc}
           alt={`${review.author}.`}
           className="h-12 w-12 rounded-full"

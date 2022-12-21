@@ -9,6 +9,7 @@ import WatchedBy from "./components/WatchedBy";
 import { api } from "./api";
 import { ReviewInterface, SeriesInterface, TabEnum } from "./interfaces";
 import Layout from "./layout";
+import { getImagePath } from "./utils";
 
 const reviews: ReviewInterface = {
   average: 4,
@@ -25,9 +26,8 @@ const reviews: ReviewInterface = {
       id: 1,
       rating: 5,
       content: `
-        This is the bag of my dreams. I took it on my last vacation and was able to fit an absurd amount of snacks for the many long and hungry flights.
-      `,
-      author: "Emily Selman",
+      Had read the sprawling world building novel by Vikram Chandra nearly a year back; so was waiting with bated breath for the TV adaptation. Also met the author at a literary event; and asked him about the same.      `,
+      author: "Salman Khan",
       avatarSrc:
         "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80",
     },
@@ -35,13 +35,20 @@ const reviews: ReviewInterface = {
       id: 1,
       rating: 5,
       content: `
-        This is the bag of my dreams. I took it on my last vacation and was able to fit an absurd amount of snacks for the many long and hungry flights.
-      `,
-      author: "Emily Selman",
+      Now having watched all the 8 episodes; my verdict is half liked it and half hated the whole thing. Anurag Kashyap and Vikramaditya Motwane have conformed to the Netflix staple of sex, violence and cliffhangers but sincerely crassness and too much sex spoil the broth somewhat.      `,
+      author: "Manoj Bajpayee",
       avatarSrc:
         "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80",
     },
-    // More reviews...
+    {
+      id: 1,
+      rating: 4,
+      content: `
+      Had read the sprawling world building novel by Vikram Chandra nearly a year back; so was waiting with bated breath for the TV adaptation. Also met the author at a literary event; and asked him about the same.      `,
+      author: "Salman Khan",
+      avatarSrc:
+        "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80",
+    },
   ],
 };
 
@@ -54,7 +61,7 @@ const App = () => {
   const fetchSeries = async () => {
     try {
       setLoading(true);
-      const response = await api.get("/samples/data-sg");
+      const response = await api.get("/data-sg");
       setSeries(response.data);
     } catch (error) {
       console.log(error);
@@ -86,7 +93,12 @@ const App = () => {
       ) : (
         <div className="relative">
           <div className="absolute top-0 w-full h-52 header-gradient" />
-          <div className="h-96 bg-no-repeat md:h-[70vh] w-full bg-cover bg-center bg-[url('https://pics.filmaffinity.com/Mad_Max_Fury_Road-352265893-large.jpg')]" />
+          <div
+            className="h-96 bg-no-repeat md:h-[70vh] w-full bg-cover bg-center"
+            style={{
+              backgroundImage: `url('${getImagePath(series?.series.img)}')`,
+            }}
+          />
           <div className="absolute bottom-0 w-full h-48 cover-gradient" />
           <div className="relative">
             <div className="absolute -top-[215px] left-0 right-0 py-10 lg:px-8 px-4">
