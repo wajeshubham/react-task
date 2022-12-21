@@ -20,7 +20,7 @@ const WatchedBy = () => {
             className="rounded-full -ml-3 w-10 h-10 border-4 border-gray-900"
           />
         </div>
-        <p className="text-gray-300">John Doe and 12k others</p>
+        <p className="text-gray-300">John Doe and 3.45 M others</p>
       </div>
     </div>
   );

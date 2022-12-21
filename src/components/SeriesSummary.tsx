@@ -28,7 +28,7 @@ const SeriesSummary: React.FC<{ summary: SeriesSummaryInterface }> = ({
           <div className="text-sm text-gray-400">
             <div className="flex gap-3 flex-row flex-wrap text-sm">
               <Rating rating={4} />
-              <span>1.2 M reviews</span>
+              <span>1.24 M reviews</span>
             </div>
           </div>
         </div>

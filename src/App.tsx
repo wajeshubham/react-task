@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import CastCard from "./components/CastCard";
 import Loader from "./components/Loader";
 import SeriesSummary from "./components/SeriesSummary";
 import ReviewItem from "./components/ReviewItem";
@@ -10,6 +9,7 @@ import { api } from "./api";
 import { ReviewInterface, SeriesInterface, TabEnum } from "./interfaces";
 import Layout from "./layout";
 import { getImagePath } from "./utils";
+import CastListing from "./components/CastListing";
 
 const reviews: ReviewInterface = {
   average: 4,
@@ -82,11 +82,18 @@ const App = () => {
       </Layout>
     );
 
-  if (!series) return null;
+  if (!series)
+    return (
+      <Layout>
+        <div className="py-12 w-full flex justify-center items-center">
+          <h1 className="text-white">Series not found :-(</h1>
+        </div>
+      </Layout>
+    );
 
   return (
     <Layout>
-      {/* We can handle this error better if we use state management */}
+      {/* We can handle api errors better if we use state management */}
       {/* I would consider handling this error in the interceptor */}
       {error ? (
         <div className="text-white mt-32 w-full text-center">{error}</div>
@@ -102,18 +109,20 @@ const App = () => {
           <div className="absolute bottom-0 w-full h-48 cover-gradient" />
           <div className="relative">
             <div className="absolute -top-[215px] left-0 right-0 py-10 lg:px-8 px-4">
+              {/* summary section */}
               <SeriesSummary summary={series.series} />
               <hr className="h-[1px] border-gray-700 w-full my-4" />
+
+              {/* Watched by section */}
               <WatchedBy />
+
+              {/* Page tabs */}
               <Tab activeTab={activeTab} onChange={setActiveTab} />
               <hr className="h-[1px] border-gray-700 w-full" />
 
+              {/* Tab panels */}
               {activeTab === TabEnum.CAST ? (
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 pt-12">
-                  {series?.characters.map((actor) => (
-                    <CastCard actor={actor} />
-                  ))}
-                </div>
+                <CastListing cast={series.characters} />
               ) : (
                 <div className="bg-gray-900">
                   <div className="pt-12 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-x-8">
@@ -121,7 +130,6 @@ const App = () => {
                       <h2 className="text-2xl font-bold tracking-tight text-white">
                         Customer Reviews
                       </h2>
-
                       <ReviewStats reviews={reviews} />
                     </div>
 
