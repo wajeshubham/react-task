@@ -1,5 +1,5 @@
 import React from "react";
-import Rating from "../icons/rating";
+import Rating from "./Rating";
 import { FeaturedReview, ReviewInterface } from "../interfaces";
 import Image from "./Image";
 

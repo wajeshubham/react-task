@@ -1,5 +1,5 @@
 import React from "react";
-import Rating from "../icons/rating";
+import Rating from "./Rating";
 import { ReviewInterface } from "../interfaces";
 
 const ReviewStats: React.FC<{ reviews: ReviewInterface }> = ({ reviews }) => {

@@ -1,6 +1,6 @@
 import { FilmIcon } from "@heroicons/react/24/outline";
 import React from "react";
-import Rating from "../icons/rating";
+import Rating from "./Rating";
 import { SeriesSummaryInterface } from "../interfaces";
 import { getImagePath } from "../utils";
 import Image from "./Image";
