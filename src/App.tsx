@@ -128,7 +128,7 @@ const App = () => {
                   <div className="pt-12 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-x-8">
                     <div className="lg:col-span-4">
                       <h2 className="text-2xl font-bold tracking-tight text-white">
-                        Customer Reviews
+                        Audience Reviews
                       </h2>
                       <ReviewStats reviews={reviews} />
                     </div>
